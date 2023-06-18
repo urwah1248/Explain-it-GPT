@@ -1,10 +1,13 @@
+import { useEffect } from "react";
+
 interface Props{
     term: string,
     setTerm: any,
-    setResult: any
+    setResult: any,
+    resultRef: any
 }
 
-const Form = ({term, setTerm, setResult}:Props) => {
+const Form = ({term, setTerm, setResult, resultRef}:Props) => {
     const handleSubmit = async (e:any) => {
         e.preventDefault();
 
