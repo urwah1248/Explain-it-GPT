@@ -4,11 +4,6 @@ import Result from '@/components/Result'
 import Form from '@/components/Form'
 import { useState, useRef, useEffect } from 'react'
 
-export const metadata = {
-  title: 'Explain GPT',
-  description: 'Ask AI to explain things for you.',
-}
-
 export default function Home() {
   const [term, setTerm] = useState("")
   const [result, setResult] = useState("")
