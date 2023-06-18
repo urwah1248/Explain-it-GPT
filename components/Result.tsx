@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface Props{
     response: any,
@@ -15,7 +15,6 @@ const Result = ({response, resultRef, term}:Props) => {
     return (
         <div id="result" ref={resultRef} className={`w-full md:w-1/2 mx-auto ${response?"":"hidden"}`}>
             <h1 className="text-center">Explained</h1>
-            <h2 className="font-bold text-xl md:text-3xl mb-2 tracking-tighter">{term}</h2>
             <div className="border-2 border-gray-200 rounded-lg p-4">
                 {response}
             </div>

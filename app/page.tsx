@@ -11,7 +11,8 @@ export default function Home() {
 
   return (
     <main className='w-10/12 md:max-w-4xl mx-auto my-20 md:my-16'>
-      <h1 className='mx-auto tracking-tighter text-3xl md:text-6xl font-extrabold text-center my-4 md:w-[600px]'>
+      <h1 className='mx-auto tracking-tighter text-3xl md:text-6xl 
+      font-extrabold text-center my-4 md:w-[600px]'>
         Ask any term and the AI will explain it to you.
       </h1>
       <Form term={term} setTerm={setTerm} setResult={setResult} resultRef={resultRef}/>
