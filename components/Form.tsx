@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+import { useState } from "react";
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
 
 interface Props{
     term: string,
@@ -7,22 +9,33 @@ interface Props{
     resultRef: any
 }
 
+const antIcon = <LoadingOutlined style={{ fontSize: 24, color: 'inherit' }} spin />;
+
 const Form = ({term, setTerm, setResult, resultRef}:Props) => {
+    const [loading, setLoading] = useState(false)
     const handleSubmit = async (e:any) => {
         e.preventDefault();
 
-        const res = await fetch("/api/ai-chat", {
-            method: "POST",
-            headers: {
-            "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                term: term
-            })
-        });
-        const response = await res.json()
-        setResult(response.aiResponse.choices[0].message.content)
-        setTerm("")
+        try{
+            setLoading(true)
+            const res = await fetch("/api/ai-chat", {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    term: term
+                })
+            });
+            const response = await res.json()
+            setResult(response.aiResponse.choices[0].message.content)
+            setTerm("")
+            setLoading(false)
+        }
+        catch (error) {
+            setLoading(false)
+            alert("Sorry for inconvenience, error occured with the API.")
+        }
     }
     return (
         <form onSubmit={handleSubmit}
@@ -34,7 +47,8 @@ const Form = ({term, setTerm, setResult, resultRef}:Props) => {
             <br />
             <button className='w-full my-4 p-2 border-2 font-extrabold
             border-gray-200 rounded-lg transition-[100ms] active:scale-90
-            hover:text-black hover:bg-gray-200'>Explain</button>
+            hover:text-black hover:bg-gray-200'>
+            {!loading ? 'Explain': <Spin indicator={antIcon} />}</button>
         </form>
     )
 }
