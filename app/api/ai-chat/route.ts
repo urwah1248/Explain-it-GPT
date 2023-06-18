@@ -12,7 +12,10 @@ export async function POST(req: NextRequest) {
     const {term} = request;
 
     if(!term){
-        return new NextResponse("No Prompt in the request", { status: 400 })
+        return new NextResponse("No Prompt in the request.", { status: 400 })
+    }
+    if(term.length>30){
+        return new NextResponse("Term is too long.", { status: 400 })
     }
     
     const res = await fetch("https://api.openai.com/v1/chat/completions", {

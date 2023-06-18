@@ -27,6 +27,7 @@ const Form = ({term, setTerm, setResult, resultRef}:Props) => {
         <form onSubmit={handleSubmit}
         className='text-center w-full md:w-1/2 mx-auto'>
             <input type="text" name="term" id="term"
+            maxLength={30}
             placeholder='Computer' value={term} required onChange={(e)=> setTerm(e.target.value)}
             className='my-4 p-2 text-black w-full border-2 border-black rounded-lg indent-2' />
             <br />
