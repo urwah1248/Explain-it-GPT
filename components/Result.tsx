@@ -2,9 +2,10 @@ import { useEffect } from "react";
 
 interface Props{
     response: any,
-    resultRef: any
+    resultRef: any,
+    term: string
 }
-const Result = ({response, resultRef}:Props) => {
+const Result = ({response, resultRef, term}:Props) => {
     useEffect(() => {
         if (response) {
           resultRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -13,8 +14,9 @@ const Result = ({response, resultRef}:Props) => {
 
     return (
         <div id="result" ref={resultRef} className={`w-full md:w-1/2 mx-auto ${response?"":"hidden"}`}>
-            <h1>Explained</h1>
-            <div className="border-2 border-black rounded-lg p-4">
+            <h1 className="text-center">Explained</h1>
+            <h2 className="font-bold text-xl md:text-3xl mb-2 tracking-tighter">{term}</h2>
+            <div className="border-2 border-gray-200 rounded-lg p-4">
                 {response}
             </div>
         </div>

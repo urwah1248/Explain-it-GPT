@@ -15,7 +15,7 @@ export default function Home() {
         Ask any term and the AI will explain it to you.
       </h1>
       <Form term={term} setTerm={setTerm} setResult={setResult} resultRef={resultRef}/>
-      <Result response={result} resultRef={resultRef}/>
+      <Result term={term} response={result} resultRef={resultRef}/>
     </main> 
   )
 }

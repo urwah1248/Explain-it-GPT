@@ -22,6 +22,7 @@ const Form = ({term, setTerm, setResult, resultRef}:Props) => {
         });
         const response = await res.json()
         setResult(response.aiResponse.choices[0].message.content)
+        setTerm("")
     }
     return (
         <form onSubmit={handleSubmit}
@@ -29,11 +30,11 @@ const Form = ({term, setTerm, setResult, resultRef}:Props) => {
             <input type="text" name="term" id="term"
             maxLength={30}
             placeholder='Computer' value={term} required onChange={(e)=> setTerm(e.target.value)}
-            className='my-4 p-2 text-black w-full border-2 border-black rounded-lg indent-2' />
+            className='my-4 p-2 text-gray-200 w-full border-2 border-gray-500 rounded-lg indent-2 bg-transparent' />
             <br />
             <button className='w-full my-4 p-2 border-2 font-extrabold
-            border-black rounded-lg transition-[100ms] active:scale-90
-            hover:text-white hover:bg-black'>Explain</button>
+            border-gray-200 rounded-lg transition-[100ms] active:scale-90
+            hover:text-black hover:bg-gray-200'>Explain</button>
         </form>
     )
 }

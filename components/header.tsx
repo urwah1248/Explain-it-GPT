@@ -4,7 +4,7 @@ const Header = () => {
             <h1 className="text-2xl md:text-4xl py-6 font-extrabold mb-4 tracking-tighter">
                 Explain-it-GPT.vercel.app
             </h1>
-            <hr className="border-2 border-black" />
+            <hr className="border-2 border-gray-200" />
         </header>
     )
 }
