@@ -9,7 +9,27 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Explain it GPT',
-  description: 'Ask AI to explain things for you.',
+  description: 'Generate Explanations of any Term.',
+  openGraph: {
+    title: 'Explain it GPT',
+    description: 'Generate Explanations of any Term.',
+    url: `${process.env.NEXT_PUBLIC_URL}`,
+    siteName: 'Explain it GPT',
+    images: [
+      {
+        url: `${process.env.NEXT_PUBLIC_URL}/screenshot.png`
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Explain it GPT',
+    description: 'Generate Explanations of any Term.',
+    creator: '@urwah1248',
+    images: [`${process.env.NEXT_PUBLIC_URL}/screenshot.png`],
+  },
 }
 
 export default function RootLayout({
@@ -19,14 +39,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-gray-200 bg-gray-900`}>
-        <Header/>
-        {children}
-        <Footer/>
-        <Analytics />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2814923421329618"
         crossOrigin="anonymous"></script>
-        </body>
+      <body className={`${inter.className} text-gray-200 bg-gray-900`}>
+        <Header/>
+
+        {children}
+
+        <Footer/>
+
+        <Analytics />
+      </body>
     </html>
   )
 }

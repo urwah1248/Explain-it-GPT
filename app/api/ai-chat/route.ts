@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
         },
         body: JSON.stringify({
             model: "gpt-3.5-turbo",
-            messages: [{"role": "user", "content": `Explain ${term} in a simple sentence. If the term is unknown, respond by saying "I am sorry, I dont think that term exists."`}],
+            messages: [{"role": "user", "content": `Explain ${term} in a 2 to 5 sentences. Only go over 2 sentences if it might be needed or helpful. If the term is unknown, respond by saying "I am sorry, I dont think that term exists."`}],
             temperature: 0.5
         })
     });
