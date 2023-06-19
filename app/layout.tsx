@@ -8,6 +8,7 @@ import { Analytics } from '@vercel/analytics/react';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_URL}`),
   title: 'Explain it GPT',
   description: 'Generate Explanations of any Term.',
   openGraph: {
@@ -17,7 +18,7 @@ export const metadata = {
     siteName: 'Explain it GPT',
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_URL}/screenshot.png`
+        url: `/screenshot.png`
       }
     ],
     locale: 'en_US',
@@ -28,7 +29,7 @@ export const metadata = {
     title: 'Explain it GPT',
     description: 'Generate Explanations of any Term.',
     creator: '@urwah1248',
-    images: [`${process.env.NEXT_PUBLIC_URL}/screenshot.png`],
+    images: [`/screenshot.png`],
   },
 }
 

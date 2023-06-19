@@ -31,6 +31,7 @@ const Form = ({term, setTerm, setResult, resultRef}:Props) => {
             setResult(response.aiResponse.choices[0].message.content)
             setTerm("")
             setLoading(false)
+            console.log(response.aiResponse);
         }
         catch (error) {
             setLoading(false)
