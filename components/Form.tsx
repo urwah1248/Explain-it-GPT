@@ -1,6 +1,3 @@
-import { useState } from "react";
-import { LoadingOutlined } from '@ant-design/icons';
-import { Spin } from 'antd';
 import { useChat } from 'ai/react'
 import Result from '@/components/Result'
 
@@ -10,7 +7,7 @@ interface Props{
 
 const Form = ({resultRef}:Props) => {
     
-    const { messages, input, handleInputChange, handleSubmit } = useChat({api:`/api/ai-chat`})
+    const { messages, input, handleInputChange, handleSubmit } = useChat({api:`/api/generate`})
     
     return (
         <>

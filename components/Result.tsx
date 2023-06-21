@@ -1,5 +1,4 @@
-import { useEffect, useRef } from "react";
-import Typewriter from 'typewriter-effect';
+import { useEffect } from "react";
 
 interface Props{
     resultRef: any,

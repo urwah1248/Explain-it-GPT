@@ -1,6 +1,6 @@
 "use client"
 import Form from '@/components/Form'
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 
 export default function Home() {
   const resultRef = useRef(null);
