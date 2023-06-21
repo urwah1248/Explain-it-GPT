@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Typewriter from 'typewriter-effect';
 
 interface Props{
-    response: any,
     resultRef: any,
-    term: string
+    response: any
 }
 
-const Result = ({response, resultRef, term}:Props) => {
+const Result = ({response, resultRef}:Props) => {
+
     useEffect(() => {
         if (response) {
           resultRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -15,10 +15,12 @@ const Result = ({response, resultRef, term}:Props) => {
     }, [response]);
 
     return (
-        <div id="result" ref={resultRef} className={`w-full md:w-1/2 mx-auto ${response?"":"hidden"}`}>
+        <div id="result" ref={resultRef} className={`w-full md:w-1/2 mx-auto ${response[0]?"":"hidden"}`}>
             <h1 className="text-center">Explained</h1>
-            <div className="border-2 border-gray-200 rounded-lg p-4">
-                {response}
+            <div className="border-2 border-gray-200 rounded-lg p-4 bg-[rgba(0,0,0,0.3)]">
+                {
+                    response[response.length-1]&&response[response.length-1].content
+                }
             </div>
         </div>
     )

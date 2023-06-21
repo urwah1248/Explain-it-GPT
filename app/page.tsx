@@ -1,12 +1,8 @@
 "use client"
-import Image from 'next/image'
-import Result from '@/components/Result'
 import Form from '@/components/Form'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef } from 'react'
 
 export default function Home() {
-  const [term, setTerm] = useState("")
-  const [result, setResult] = useState("")
   const resultRef = useRef(null);
 
   return (
@@ -16,8 +12,7 @@ export default function Home() {
       '>
         Generate Explanations of any Term you Enter
       </h1>
-      <Form term={term} setTerm={setTerm} setResult={setResult} resultRef={resultRef}/>
-      <Result term={term} response={result} resultRef={resultRef}/>
+      <Form resultRef={resultRef}/>
     </main> 
   )
 }
