@@ -16,12 +16,12 @@ export const runtime = 'edge'
 export async function POST(req: NextRequest) {
     const { messages } = await req.json();
 
-    // if(!term){
-    //     return new NextResponse("No Prompt in the request.", { status: 400 })
-    // }
-    // if(term.length>30){
-    //     return new NextResponse("Term is too long.", { status: 400 })
-    // }
+    if(!messages[messages.length-1].content){
+        return new NextResponse("No Prompt in the request.", { status: 400 })
+    }
+    if(messages[messages.length-1].content.length>30){
+        return new NextResponse("Term is too long.", { status: 400 })
+    }
 
     const response = await openai.createChatCompletion({
         model: 'gpt-3.5-turbo',

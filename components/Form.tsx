@@ -10,7 +10,7 @@ interface Props{
 
 const Form = ({resultRef}:Props) => {
     
-    const { messages, input, handleInputChange, handleSubmit } = useChat({api:`${process.env.NEXT_PUBLIC_URL}/api/ai-chat`})
+    const { messages, input, handleInputChange, handleSubmit } = useChat({api:`/api/ai-chat`})
     
     return (
         <>
