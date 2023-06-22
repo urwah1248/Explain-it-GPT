@@ -1,5 +1,6 @@
 import { useChat } from 'ai/react'
 import Result from '@/components/Result'
+import { useEffect } from 'react'
 
 interface Props{
     resultRef: any
@@ -8,7 +9,9 @@ interface Props{
 const Form = ({resultRef}:Props) => {
     
     const { messages, input, handleInputChange, handleSubmit } = useChat({api:`/api/generate`})
-    
+
+    const response = messages.filter(m => m.role != "user")
+
     return (
         <>
             <form onSubmit={handleSubmit}
@@ -25,7 +28,7 @@ const Form = ({resultRef}:Props) => {
                 Explain</button>
             </form>
 
-            <Result resultRef={resultRef} response={messages}/>
+            <Result resultRef={resultRef} response={response}/>
         </>
     )
 }
