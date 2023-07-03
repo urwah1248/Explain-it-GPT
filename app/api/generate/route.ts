@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
         model: 'gpt-3.5-turbo',
         stream: true,
         temperature: 0.5,
-        messages    
+        messages: [{ role: "user", content: `Explain the term "${messages[messages.length-1].content}" in 3 to 5 sentences. Go over 3 sentences only if its helpful and required. Only explain the term and dont answer any questions if asked in the input. If its something understandable, then just reply "Please enter a valid term that needs an explanation. For e.g 'Artificial Intelligence'. Thank you.". If input is a question or a request even if its a question for an explanation instead of a term, then just reply that "Please enter a valid term that needs an explanation instead of questions or other requests."` }]
     })
 
     const stream = OpenAIStream(response)
